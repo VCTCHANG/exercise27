@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RWD 800px Test</title>
+    <title>RWD Layout 480px</title>
     <style>
         * {
             box-sizing: border-box;
@@ -11,7 +11,7 @@
 
         body {
             margin: 0;
-            padding: 20px;
+            padding: 10px;
             background-color: #56b0f5; /* 藍色背景 */
             display: flex;
             justify-content: center;
@@ -21,20 +21,25 @@
         .container {
             background-color: white;
             width: 100%;
-            max-width: 1000px; /* 稍微加大容器上限方便觀察 */
+            max-width: 800px;
             padding: 20px;
-            border-radius: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* 區塊通用設定 */
+        .item {
+            border-radius: 4px;
+            margin-bottom: 15px;
         }
 
         /* 頂部綠色區塊 */
         .header {
             background-color: #b8d962;
             height: 120px;
-            margin-bottom: 15px;
-            border-radius: 8px;
         }
 
-        /* 中間青色區塊：預設為 (b) 模式，3 欄 */
+        /* 中間青色區塊：預設 (b) 模式為 3 欄並排 */
         .middle-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); 
@@ -45,10 +50,9 @@
         .middle-item {
             background-color: #5ebec4;
             height: 150px;
-            border-radius: 8px;
         }
 
-        /* 下方灰色區塊：預設為 (b) 模式，4 欄 */
+        /* 下方灰色區塊：預設 (b) 模式為 4 欄並排 */
         .bottom-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -56,13 +60,12 @@
         }
 
         .bottom-item {
-            background-color: #eeeeee;
+            background-color: #f0f0f0;
             height: 60px;
-            border-radius: 8px;
         }
 
-        /* --- 響應式切換點：設定為 800px --- */
-        @media screen and (max-width: 800px) {
+        /* --- 響應式切換點：當寬度小於 480px --- */
+        @media screen and (max-width: 480px) {
             
             /* (a) 中間變為 1 欄垂直堆疊 */
             .middle-grid {
@@ -74,9 +77,8 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            /* 稍微調整高度讓手機版看起來比例較好 */
             .middle-item {
-                height: 100px;
+                height: 100px; /* 手機版略微縮小高度 */
             }
         }
     </style>
@@ -84,19 +86,19 @@
 <body>
 
 <div class="container">
-    <div class="header"></div>
+    <div class="item header"></div>
 
     <div class="middle-grid">
-        <div class="middle-item"></div>
-        <div class="middle-item"></div>
-        <div class="middle-item"></div>
+        <div class="item middle-item"></div>
+        <div class="item middle-item"></div>
+        <div class="item middle-item"></div>
     </div>
 
     <div class="bottom-grid">
-        <div class="bottom-item"></div>
-        <div class="bottom-item"></div>
-        <div class="bottom-item"></div>
-        <div class="bottom-item"></div>
+        <div class="item bottom-item"></div>
+        <div class="item bottom-item"></div>
+        <div class="item bottom-item"></div>
+        <div class="item bottom-item"></div>
     </div>
 </div>
 
