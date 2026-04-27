@@ -3,80 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Layout Exercise</title>
+    <title>RWD 800px Test</title>
     <style>
-        /* 整體背景為藍色 */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 20px;
             background-color: #56b0f5; /* 藍色背景 */
-            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
+            font-family: Arial, sans-serif;
         }
 
-        /* 白色容器外框 */
         .container {
             background-color: white;
             width: 100%;
-            max-width: 600px; /* 限制最大寬度以便觀察 */
-            padding: 15px;
+            max-width: 1000px; /* 稍微加大容器上限方便觀察 */
+            padding: 20px;
             border-radius: 15px;
-            box-sizing: border-box;
         }
 
-        /* 通用區塊樣式 */
-        .item {
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-
-        /* 綠色區塊 (Header) */
+        /* 頂部綠色區塊 */
         .header {
             background-color: #b8d962;
-            height: 100px;
-            width: 100%;
+            height: 120px;
+            margin-bottom: 15px;
+            border-radius: 8px;
         }
 
-        /* 中間青色區塊容器 */
+        /* 中間青色區塊：預設為 (b) 模式，3 欄 */
         .middle-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 預設 3 欄 */
-            gap: 10px;
-            margin-bottom: 10px;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 15px;
+            margin-bottom: 15px;
         }
 
         .middle-item {
             background-color: #5ebec4;
-            height: 120px;
+            height: 150px;
+            border-radius: 8px;
         }
 
-        /* 下方灰色區塊容器 */
+        /* 下方灰色區塊：預設為 (b) 模式，4 欄 */
         .bottom-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 預設 4 欄 */
-            gap: 10px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
         }
 
         .bottom-item {
-            background-color: #f0f0f0;
-            height: 50px;
+            background-color: #eeeeee;
+            height: 60px;
+            border-radius: 8px;
         }
 
-        /* --- 響應式關鍵：當寬度小於 480px --- */
-        @media (max-width: 479px) {
-            /* 中間青色區塊改為 1 欄 (堆疊) */
+        /* --- 響應式切換點：設定為 800px --- */
+        @media screen and (max-width: 800px) {
+            
+            /* (a) 中間變為 1 欄垂直堆疊 */
             .middle-grid {
                 grid-template-columns: 1fr;
             }
             
-            /* 下方灰色區塊改為 2 欄 (2x2 網格) */
+            /* (a) 下方變為 2 欄 (2x2 網格) */
             .bottom-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            /* 稍微調整高度讓手機版看起來比例較好 */
             .middle-item {
-                height: 80px; /* 手機版高度稍微縮小 */
+                height: 100px;
             }
         }
     </style>
@@ -84,19 +84,19 @@
 <body>
 
 <div class="container">
-    <div class="item header"></div>
+    <div class="header"></div>
 
     <div class="middle-grid">
-        <div class="item middle-item"></div>
-        <div class="item middle-item"></div>
-        <div class="item middle-item"></div>
+        <div class="middle-item"></div>
+        <div class="middle-item"></div>
+        <div class="middle-item"></div>
     </div>
 
     <div class="bottom-grid">
-        <div class="item bottom-item"></div>
-        <div class="item bottom-item"></div>
-        <div class="item bottom-item"></div>
-        <div class="item bottom-item"></div>
+        <div class="bottom-item"></div>
+        <div class="bottom-item"></div>
+        <div class="bottom-item"></div>
+        <div class="bottom-item"></div>
     </div>
 </div>
 
