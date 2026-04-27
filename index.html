@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout Exercise</title>
+    <style>
+        /* 整體背景為藍色 */
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #56b0f5; /* 藍色背景 */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 白色容器外框 */
+        .container {
+            background-color: white;
+            width: 100%;
+            max-width: 600px; /* 限制最大寬度以便觀察 */
+            padding: 15px;
+            border-radius: 15px;
+            box-sizing: border-box;
+        }
+
+        /* 通用區塊樣式 */
+        .item {
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        /* 綠色區塊 (Header) */
+        .header {
+            background-color: #b8d962;
+            height: 100px;
+            width: 100%;
+        }
+
+        /* 中間青色區塊容器 */
+        .middle-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 預設 3 欄 */
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .middle-item {
+            background-color: #5ebec4;
+            height: 120px;
+        }
+
+        /* 下方灰色區塊容器 */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 預設 4 欄 */
+            gap: 10px;
+        }
+
+        .bottom-item {
+            background-color: #f0f0f0;
+            height: 50px;
+        }
+
+        /* --- 響應式關鍵：當寬度小於 480px --- */
+        @media (max-width: 479px) {
+            /* 中間青色區塊改為 1 欄 (堆疊) */
+            .middle-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* 下方灰色區塊改為 2 欄 (2x2 網格) */
+            .bottom-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .middle-item {
+                height: 80px; /* 手機版高度稍微縮小 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="item header"></div>
+
+    <div class="middle-grid">
+        <div class="item middle-item"></div>
+        <div class="item middle-item"></div>
+        <div class="item middle-item"></div>
+    </div>
+
+    <div class="bottom-grid">
+        <div class="item bottom-item"></div>
+        <div class="item bottom-item"></div>
+        <div class="item bottom-item"></div>
+        <div class="item bottom-item"></div>
+    </div>
+</div>
+
+</body>
+</html>
